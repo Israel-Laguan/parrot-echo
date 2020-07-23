@@ -1,0 +1,30 @@
+{
+  "name": "parrot-echo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server:install": "npm i --prefix server",
+    "client:install": "npm i --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm start --prefix client",
+    "initialize": "concurrently \"npm run server:install\" \"npm run client:install\"",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "docker",
+    "npm",
+    "docker-compose"
+  ],
+  "author": {
+    "name": "Israel Antonio Rosales Laguan",
+    "email": "contact@israellaguan.com",
+    "url": "http://israellaguan.com",
+    "GitHub": "https://github.com/Israel-Laguan",
+    "LinkedIn": "https://www.linkedin.com/in/israellaguan",
+    "hireable": true
+  },
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}

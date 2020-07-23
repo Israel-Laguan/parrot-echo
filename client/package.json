@@ -1,0 +1,48 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "animejs": "^3.2.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "mdbreact": "^4.27.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.2.2",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "author": {
+    "name": "Israel Antonio Rosales Laguan",
+    "email": "contact@israellaguan.com",
+    "url": "http://israellaguan.com",
+    "GitHub": "https://github.com/Israel-Laguan",
+    "LinkedIn": "https://www.linkedin.com/in/israellaguan",
+    "hireable": true
+  },
+  "proxy": "http://server:8000",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "ParrotEcho Server DEV",
+      "url": "http://localhost:8000"
+    },
+    {
+      "description": "ParrotEcho Server",
+      "url": "https://parrot-echo-server.herokuapp.com"
+    }  
+  ],
+  "info": {
+    "version": "1.0.0-oas3",
+    "title": "🦜️ ParrotEcho Server",
+    "description": "# Server to provide echo functionality\n\nParrotEcho REST API!"
+  },
+  "paths": {
+    "/ping": {
+      "get": {
+        "summary": "Server heartbeat operation",
+        "description": "This operation shows current *status* of server.<br/> If `200` then all ok, if `500` a problem is there.<br/> __Dev Oriented Endpoint__",
+        "security": [],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Ok"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        },
+        "tags": [
+          "system"
+        ]
+      }
+    },
+    "/api/v1/echo": {
+      "post": {
+        "summary": "Server heartbeat operation",
+        "description": "send a message to the server and receive the message and send,  or echo, it back",
+        "security": [],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Message"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/echoBack"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientError"
+          }
+        },
+        "tags": [
+          "system"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "system",
+      "description": "business logic"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Message": {
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Identifier",
+            "example": 20,
+            "min": 0
+          },
+          "name": {
+            "type": "string",
+            "description": "Name with more than 3 letters",
+            "example": "John Doe",
+            "minLength": 3
+          },
+          "message": {
+            "type": "string",
+            "description": "Any string",
+            "example": "Hello World!"
+          }
+        },
+        "xml": {
+          "name": "Message"
+        }
+      },
+      "Ok": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "description": {
+            "type":"string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "uptime": {
+            "type":"number"
+          },
+          "ping": {
+            "type":"string"
+          },
+          "msg": {
+            "type": "object",
+            "description": "Explanatory message in English (en), Spanish (es) and Portuguese (pt)",
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "es": {
+                "type": "string"
+              },
+              "pt": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ServerError": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "msg": {
+            "type": "object",
+            "description": "Explanatory message in English (en), Spanish (es) and Portuguese (pt)",
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "es": {
+                "type": "string"
+              },
+              "pt": {
+                "type": "string"
+              }
+            }
+          },
+          "errors": {
+            "description": "object with valuable data",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Describe the error",
+              "properties": {
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ClientError": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "msg": {
+            "type": "object",
+            "description": "Explanatory message in English (en), Spanish (es) and Portuguese (pt)",
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "es": {
+                "type": "string"
+              },
+              "pt": {
+                "type": "string"
+              }
+            }
+          },
+          "errors": {
+            "description": "object with valuable data",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Describe the error",
+              "properties": {
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Echo": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "msg": {
+            "type": "object",
+            "description": "Explanatory message in English (en), Spanish (es) and Portuguese (pt)",
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "es": {
+                "type": "string"
+              },
+              "pt": {
+                "type": "string"
+              }
+            }
+          },
+          "data": {
+            "description": "object with valuable data",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "object with valuable data",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "Message": {
+        "description": "Message to send and receive",
+        "required": true,
+        "content": {
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "$ref": "#/components/schemas/Message"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Message"
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "ServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ServerError"
+            }
+          }
+        }
+      },
+      "ClientError": {
+        "description": "Client Sent Incorrect or incomplete Data",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ClientError"
+            }
+          }
+        }
+      },
+      "Ok": {
+        "description": "The petition returned successfuly",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Ok"
+            }
+          }
+        }
+      },
+      "echoBack": {
+        "description": "Message cameback without problems!",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Echo"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+version: "3"
+services:
+    frontend:
+        environment:
+            - REACT_APP_HOST=http://server
+            - REACT_APP_PORT=8000
+        container_name: echo_web
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        image: israellaguan/echo_web
+        tty: true
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:/usr/src/app
+        command: [ "npm", "start" ]
+    server:
+        container_name: echo_server
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        image: israellaguan/echo_server
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./server:/usr/src/app
