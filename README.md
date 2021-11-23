@@ -122,7 +122,7 @@ Happy programming :smiley: :v:
 
 Icons from:
 
-[![Icons8][icons8-logo]][Icons8] Icons8
+[![Icons8][icons8-logo]][icons8] Icons8
 
 ## License
 
@@ -132,6 +132,7 @@ Icons from:
 Feel free to fork this project and improve it
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Israel-Laguan/parrot-echo?style=for-the-badge
 [contributors-url]: https://github.com/Israel-Laguan/parrot-echo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Israel-Laguan/parrot-echo?style=for-the-badge
@@ -148,10 +149,10 @@ Feel free to fork this project and improve it
 [nodejs]: https://img.shields.io/badge/node.js-V14.x-339933?style=for-the-badge&logo=node.js
 [badge-apache]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge
 [apache-license]: https://opensource.org/licenses/Apache-2.0
-[Icons8]: https://icons8.com/
+[icons8]: https://icons8.com/
 [icons8-logo]: https://img.icons8.com/fluent/20/000000/icons8-new-logo.png
 [badge-standard]: https://cdn.rawgit.com/standard/standard/master/badge.svg
 [standard-style]: https://github.com/standard/standard
 [localhost:8000]: http://localhost:8000
 [original-article]: https://medium.com/@himalee.tailor/what-is-an-echoserver-b2bfd3b8deeb
-[localhost:3000]: http://localhost:3000
+[localhost:3000]: http://localhost:3000//
