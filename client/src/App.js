@@ -2,9 +2,7 @@ import React from "react";
 import Posts from "./components/Posts";
 import PostForm from "./components/PostForm";
 import Intro from "./components/Intro";
-import "./assets/css/bootstrap.min.css";
-import "./assets/css/style.css";
-import "./assets/css/neumorphism.css";
+import "./assets/css/custom.scss";
 
 class App extends React.Component {
   render() {
