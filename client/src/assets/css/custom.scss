@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
 
+$yellow: #E2D13A;
+$red:#CE5353;
+$secondary:#D2D2D2;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
@@ -21,9 +27,3 @@ code {
   margin:0;
   padding: 0;
 }
-
-$yellow: #E2D13A;
-$red:#CE5353;
-$secondary:#D2D2D2;
-
-@import "../../../node_modules/bootstrap/scss/bootstrap";
