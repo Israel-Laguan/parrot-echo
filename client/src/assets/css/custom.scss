@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+
+$yellow: #E2D13A;
+$red:#CE5353;
+$secondary:#D2D2D2;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+ monospace;
+}
+
+.custom-shade{
+  -webkit-box-shadow: 0 1px 3px 1px #949191;
+  box-shadow: 0 1px 3px 1px #949191;
+}
+
+.App{
+  margin:0;
+  padding: 0;
+}
