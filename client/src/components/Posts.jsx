@@ -1,29 +1,30 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React, {useContext,useEffect} from "react";
+import PostContext from './../context/Post/Context';
 
-const Posts = ({ posts }) => (
-  <div>
-    <h2 className="text-secondary">Past Shout outs!</h2>
-    {posts.length > 0 ? (
-      posts.map((post) => (
-        <div key={post.id}>
-          <h3>{post.name}</h3>
-          <p>{post.message}</p>
-        </div>
-      ))
-    ) : (
-      <span>Add your own!</span>
-    )}
-  </div>
-);
+const Posts = () =>{
 
-Posts.propTypes = {
-  posts: PropTypes.array.isRequired,
+  const {items,getPosts} = useContext(PostContext)
+
+  useEffect(() => {
+    getPosts()
+  }, [])
+  
+  return(
+    <div>
+      <h2 className="text-secondary">Past Shout outs!</h2>
+      {items.length > 0 ? (
+        items.map((post,index) => (
+          <div key={post.id}>
+            <h3>Usuario {index+1}</h3>
+            <p>{post.body}</p>
+          </div>
+        ))
+      ) : (
+        <span>Add your own!</span>
+      )}
+    </div>
+  )
 };
 
-const mapStateToProps = (state) => ({
-  posts: state.posts.items
-});
 
-export default connect(mapStateToProps, {})(Posts);
+export default Posts;

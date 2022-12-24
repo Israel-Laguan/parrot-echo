@@ -1,30 +1,27 @@
 import React from "react";
 import Posts from "./components/Posts";
-import PostForm from "./components/PostForm";
 import Intro from "./components/Intro";
 import "./assets/css/custom.scss";
+import PostState from "./context/Post/State";
 
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
-      <div className="App">
+      <PostState>
+        <div className="App">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
               <Intro />
             </div>
             <div className="col-md-6">
-              <PostForm />
+            <Posts />
             </div>
           </div>
         </div>
         <hr />
-        <div>
-          <Posts />
-        </div>
       </div>
+      </PostState>
     );
-  }
 }
 
 export default App;
