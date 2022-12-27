@@ -31,9 +31,7 @@ const PostState = ({children})=>{
   }}>
     {children}
   </PostContext.Provider>
-
   )
+};
 
-}
-
-export default PostState
+export default PostState;
