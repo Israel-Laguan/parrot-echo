@@ -4,13 +4,12 @@ import postReducer from "./Reducer"
 import PostContext from './Context';
 import { GET_DATA } from './../types';
 
+const initialState = {
+  items:[],
+};
+
 const PostState = ({children})=>{
-
-  const initialState = {
-    items:[],
-  }
-
-  const [state,dispatch] = useReducer(postReducer,initialState)
+  const [state,dispatch] = useReducer(postReducer,initialState);
   
   const getPosts = async ()=>{
     //api prueba
