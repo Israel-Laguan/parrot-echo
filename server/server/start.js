@@ -1,16 +1,11 @@
 'use strict'
-// const fs = require('fs')
 const http = require('http')
-const https = require('https')
 const logger = require('../util/logger')
 const { version, description } = require('../package.json')
 
 module.exports = (app) => {
   const httpPort = normalizePort(
     process.env.PORT || process.env.PORT_HTTP || 8000
-  )
-  const httpsPort = normalizePort(
-    process.env.PORT || process.env.PORT_HTTPS || 8001
   )
   http
     .createServer(app)
@@ -19,19 +14,6 @@ module.exports = (app) => {
     .on('listening', onListening)
 
   if (process.env.NODE_ENV !== 'production') {
-    /**
-     * Create HTTPS server.
-     */
-    const options = {
-      //   cert: fs.readFileSync('cert/cert.pem') || null,
-      //   key: fs.readFileSync('cert/key.pem') || null
-    }
-    https
-      .createServer(options, app)
-      .listen(httpsPort)
-      .on('error', onError)
-      .on('listening', onListening)
-    // Liked the banner? http://patorjk.com/software/taag/#p=display&f=Lean
     logger.info(`
     _/_/_/                                              _/      _/_/_/_/            _/                 
    _/    _/    _/_/_/  _/  _/_/  _/  _/_/    _/_/    _/_/_/_/  _/          _/_/_/  _/_/_/      _/_/    
@@ -70,7 +52,7 @@ _/          _/_/_/  _/        _/          _/_/        _/_/  _/_/_/_/    _/_/_/  
       throw error
     }
 
-    const port = this.cert ? httpsPort : httpPort
+    const port = httpPort
 
     const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
 
